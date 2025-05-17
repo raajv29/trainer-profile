@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SEDI BHATAPARA - Team Contacts</title>
+  <style>
+    :root {
+  --gold: #fabe12;
+  --blue: #2a3775;
+  --blue-light: #556ab1;
+  --shadow-blue: rgba(42, 55, 117, 0.3);
+  --shadow-gold: rgba(250, 189, 18, 0.4);
+  --whatsapp-green: #25d366;
+  --whatsapp-green-hover: #1ebe56;
+  --background-yellow: #fff3cd; /* आप चाहें तो इसे हटा सकते हैं या रख सकते हैं */
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: white;   /* यहाँ अपडेट किया */
+  margin: 0;
+  padding: 30px 15px 40px;
+  color: var(--blue);
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header img {
+  max-width: 600px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 6px 30px rgba(0,0,0,0.15);
+  margin-bottom: 20px;
+}
+
+/* Shimmer effect for header text */
+@keyframes shimmer-text {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+header h1 {
+  color: var(--blue);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin: 0;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(170, 170, 170, 0.4);
+
+  /* Shimmer styles */
+  background: linear-gradient(90deg, var(--blue) 25%, #fabe12 50%, var(--blue) 75%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-text 3s linear infinite;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 28px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Glassmorphism shared style for all cards */
+.card, .manager-card {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.15),
+    0 4px 16px 0 rgba(31, 38, 135, 0.10);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 30px 25px;
+  color: var(--blue);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Running shimmer animation for manager card */
+@keyframes shimmer-run {
+  0% {
+    background-position: -300% 0;
+  }
+  100% {
+    background-position: 300% 0;
+  }
+}
+
+/* Manager card distinct */
+.manager-card {
+      max-width: 600px;
+      flex-basis: 100%;
+      padding: 45px 35px;
+      border-radius: 20px;
+      border: 2px solid var(--gold);
+      box-shadow:
+        0 12px 40px 0 rgba(250, 189, 18, 0.4),
+        0 8px 32px 0 rgba(250, 189, 18, 0.3);
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--blue);
+
+      background: var(--gold);
+      background-size: 400% 100%;
+      animation: shimmer-run 15s linear infinite;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .manager-card:hover {
+      transform: scale(1.05);
+      box-shadow:
+        0 20px 50px 0 rgba(250, 189, 18, 0.8),
+        0 10px 40px 0 rgba(250, 189, 18, 0.7);
+    }
+
+    /* Other cards with gold background */
+    .card {
+      width: 270px;
+      border-radius: 20px;
+      padding: 30px 25px;
+      background: var(--gold);
+      color: var(--blue);
+      box-shadow:
+        0 8px 32px 0 rgba(31, 38, 135, 0.15),
+        0 4px 16px 0 rgba(31, 38, 135, 0.10);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow:
+        0 15px 35px 0 rgba(42, 55, 117, 0.4),
+        0 10px 30px 0 rgba(42, 55, 117, 0.3);
+    }
+img {
+  border-radius: 15px;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(42, 55, 117, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.card:hover img, .manager-card:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px var(--gold);
+}
+
+h2 {
+  margin: 10px 0 8px;
+  font-weight: 800;
+  font-size: 1.8rem;
+  color: var(--blue);
+  text-shadow: 1px 1px 2px rgba(255 255 255 / 0.6);
+}
+
+.designation {
+  margin-bottom: 18px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--blue);
+  text-shadow: none;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+a.button {
+  display: flex;
+  align-items: center;  /* keeps icon & text vertically centered */
+  gap: 8px;
+  padding: 10px 22px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: white;
+  user-select: none;
+}
+
+a.button img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+a.call-btn {
+  background-color: var(--gold);
+  color: var(--blue);
+  box-shadow: 0 4px 12px rgba(250, 189, 18, 0.6);
+}
+a.call-btn:hover {
+  background-color: #e5b108;
+  box-shadow: 0 6px 20px #e5b108;
+  color: #1f2b4a;
+}
+
+a.whatsapp-btn {
+  background-color: var(--whatsapp-green);
+  color: white;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.6);
+}
+a.whatsapp-btn:hover {
+  background-color: var(--whatsapp-green-hover);
+  box-shadow: 0 6px 20px var(--whatsapp-green-hover);
+  color: #e6f3ea;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .card, .manager-card {
+    width: 90%;
+    flex-basis: auto;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://i.postimg.cc/xjw04jGq/NEW-PPT-Format-1.jpg" alt="SEDI Logo" />
+  <h1>SEDI Bhatapara Team</h1>
+</header>
+
+<div class="container">
+  <!-- Manager Card -->
+  <div class="card manager-card">
+    <img src="https://i.postimg.cc/tCf2H5j5/Whats-App-Image-2025-05-15-at-2-23-57-PM.jpg" alt="Mithun Paliwal" />
+    <h2>Mithun Paliwal</h2>
+    <p class="designation">Zonal Manager</p>
+    <div class="btn-group">
+      <a href="tel:+919826161984" class="button call-btn" aria-label="Call">
+        <img src="https://cdn-icons-png.flaticon.com/128/724/724664.png" alt="Call Icon" /> Call
+      </a>
+      <a href="https://wa.me/919826161984" class="button whatsapp-btn" target="_blank" aria-label="WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/128/16566/16566143.png" alt="WhatsApp Icon" /> WhatsApp
+      </a>
+    </div>
+  </div>
+
+  <!-- Staff Cards -->
+  <div class="card">
+    <img src="https://i.postimg.cc/qR6LNHw5/6123176029292969392.jpg" alt="Vikash Verma" />
+    <h2>Vikash Verma</h2>
+    <p class="designation">IT Trainer</p>
+    <div class="btn-group">
+      <a href="tel:+918269351561" class="button call-btn"><img src="https://cdn-icons-png.flaticon.com/128/724/724664.png" /> Call</a>
+      <a href="https://wa.me/918269351561" class="button whatsapp-btn"><img src="https://cdn-icons-png.flaticon.com/128/16566/16566143.png" /> WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://i.postimg.cc/jqz5Krk2/Whats-App-Image-2025-05-16-at-10-33-06-AM.jpg" alt="Raj Mahobia" />
+    <h2>Raj Mahobia</h2>
+    <p class="designation">Retail Trainer</p>
+    <div class="btn-group">
+      <a href="tel:+919098968001" class="button call-btn"><img src="https://cdn-icons-png.flaticon.com/128/724/724664.png" /> Call</a>
+      <a href="https://wa.me/919098968001" class="button whatsapp-btn"><img src="https://cdn-icons-png.flaticon.com/128/16566/16566143.png" /> WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://i.postimg.cc/rwYSXF2t/Whats-App-Image-2025-05-15-at-3-00-09-PM.jpg" alt="Archana Tiwari" />
+    <h2>Archana Tiwari</h2>
+    <p class="designation">Soft Skill Trainer</p>
+    <div class="btn-group">
+      <a href="tel:+918319395003" class="button call-btn"><img src="https://cdn-icons-png.flaticon.com/128/724/724664.png" /> Call</a>
+      <a href="https://wa.me/918319395003" class="button whatsapp-btn"><img src="https://cdn-icons-png.flaticon.com/128/16566/16566143.png" /> WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://i.postimg.cc/BvXtHYcK/Whats-App-Image-2025-05-15-at-2-13-42-PM.jpg" alt="Hemlata Namdeo" />
+    <h2>Hemlata Namdeo</h2>
+    <p class="designation">Mobilizer</p>
+    <div class="btn-group">
+      <a href="tel:+917089019505" class="button call-btn"><img src="https://cdn-icons-png.flaticon.com/128/724/724664.png" /> Call</a>
+      <a href="https://wa.me/917089019505" class="button whatsapp-btn"><img src="https://cdn-icons-png.flaticon.com/128/16566/16566143.png" /> WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://freeimghost.net/images/2025/05/17/WhatsApp-Image-2025-05-17-at-10.34.47-AM.jpeg" alt="Amit Karande" />
+    <h2>Amit Karande</h2>
+    <p class="designation">Placement Officer</p>
+    <div class="btn-group">
+      <a href="tel:+918770372651" class="button call-btn"><img src="https://cdn-icons-png.flaticon.com/128/724/724664.png" /> Call</a>
+      <a href="https://wa.me/918770372651" class="button whatsapp-btn"><img src="https://cdn-icons-png.flaticon.com/128/16566/16566143.png" /> WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://i.postimg.cc/XNZXpz7S/Whats-App-Image-2025-05-17-at-9-44-56-AM.jpg" alt="Pradeep Sahu" />
+    <h2>Pradeep Sahu</h2>
+    <p class="designation">Electrical Trainer</p>
+    <div class="btn-group">
+      <a href="tel:+919589515851" class="button call-btn"><img src="https://cdn-icons-png.flaticon.com/128/724/724664.png" /> Call</a>
+      <a href="https://wa.me/919589515851" class="button whatsapp-btn"><img src="https://cdn-icons-png.flaticon.com/128/16566/16566143.png" /> WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://freeimghost.net/images/2025/05/17/shobhna.jpeg" alt="Shobhana Verma" />
+    <h2>Shobhana Verma</h2>
+    <p class="designation">MIS Officer</p>
+    <div class="btn-group">
+      <a href="tel:+919977977530" class="button call-btn"><img src="https://cdn-icons-png.flaticon.com/128/724/724664.png" /> Call</a>
+      <a href="https://wa.me/919977977530" class="button whatsapp-btn"><img src="https://cdn-icons-png.flaticon.com/128/16566/16566143.png" /> WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/200x200?text=Poonam+Rajak" alt="Poonam Rajak" />
+    <h2>Poonam Rajak</h2>
+    <p class="designation">Office Assistant</p>
+    <div class="btn-group">
+      <a href="tel:+919617931258" class="button call-btn"><img src="https://cdn-icons-png.flaticon.com/128/724/724664.png" /> Call</a>
+      <a href="https://wa.me/919617931258" class="button whatsapp-btn"><img src="https://cdn-icons-png.flaticon.com/128/16566/16566143.png" /> WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
